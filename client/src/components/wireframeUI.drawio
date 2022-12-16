@@ -1,0 +1,112 @@
+<mxfile host="65bd71144e">
+    <diagram id="Cl0LeMc7NIsTYPm4MxPc" name="Page-1">
+        <mxGraphModel dx="1726" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="signup/login" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="180" width="160" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="shape=link;html=1;" edge="1" parent="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="20" y="530" as="sourcePoint"/>
+                        <mxPoint x="840" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Post by recent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="620" width="440" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Route to user page" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="560" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Route all Riders&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="560" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Route to locations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="560" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Post by recent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="880" width="440" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Post by recent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="1140" width="440" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="shape=link;html=1;" edge="1" parent="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="15" y="1400" as="sourcePoint"/>
+                        <mxPoint x="835" y="1400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="&lt;span&gt;rider&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="1620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;span&gt;rider&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="1620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;span&gt;rider&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="1490" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="rider" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="1490" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="rider" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="1490" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;span&gt;rider&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="1620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Display something else here maybe like a details profile with a preview page of their gallery of posts?&lt;br&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="1450" width="400" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="shape=link;html=1;" edge="1" parent="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="15" y="1890" as="sourcePoint"/>
+                        <mxPoint x="835" y="1890" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="Map showing the locations going to stick to the scope of the USA for now, link to an API so you can pin and show the post when clicked" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1930" width="690" height="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="2310" width="280" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="MAP" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="2310" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="2420" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="2490" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="2370" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="" style="shape=link;html=1;" edge="1" parent="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="-30" y="2660" as="sourcePoint"/>
+                        <mxPoint x="790" y="2660" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="User Profile" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry y="2700" width="310" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="your recent posts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="2700" width="420" height="820" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="addPost form&lt;br&gt;will have add location required" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry y="3030" width="320" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="comments" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="800" width="410" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="comments" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="1320" width="410" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="comments" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="1060" width="410" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
