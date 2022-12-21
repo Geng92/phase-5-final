@@ -27,6 +27,6 @@ class PostsController < ApplicationController
   end
 
   def post_params 
-      params.permit(:rider_id, :location_id, :thumbnail, :clip, :date, :likes)
+      params.permit(:rider_id, :location_id, :thumbnail, :clip, :filmed_by, :date, :likes)
   end
 end
