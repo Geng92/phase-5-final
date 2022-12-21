@@ -16,8 +16,8 @@ puts "post destroyed"
 puts "comment destroyed"
 
 7.times {
-    Rider.create (
-        name: Faker::Name.name,
+    Rider.create(
+        name: Faker::FunnyName.name,
         instagram: Faker::Name.name,
         image: Faker::LoremFlickr.image,
         city: Faker::Address.city,
@@ -27,24 +27,28 @@ puts "comment destroyed"
         professional: Faker::Boolean.boolean
     )
 }
+puts "Done creating rider"
 
 10.times {
-    Location.create (
-        name: Faker::Name.name,
+    Location.create(
+        name: Faker::FunnyName.name,
         description: "the spot",
         longitude: Faker::Number.between(from: 12, to: 55),
         latitude: Faker::Number.between(from: 10, to: 50)
     )
 }
+puts "Done creating location"
 
 15.times {
-    Location.create (
+    Post.create(
         thumbnail: Faker::LoremFlickr.image,
         clip: Faker::LoremFlickr.image,
-        filmer: Faker::Name.name,
-        date: Faker::Date.foward,
+        filmer: Faker::FunnyName.name,
+        date: Faker::Date.forward(days: 365),
         likes: Faker::Number.rand(1..10),
         rider_id: Rider.all.ids.sample,
         location_id: Location.all.ids.sample
     )
 }
+
+puts "Done Creating!!"
