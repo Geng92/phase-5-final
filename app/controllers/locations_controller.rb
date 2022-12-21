@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+  before_action :select_location, only: [:show]
+
   def index
       render json: Location.all
   end

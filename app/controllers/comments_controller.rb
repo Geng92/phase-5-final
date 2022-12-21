@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :select_comment, only: [:show]
+  
   def index
       render json: Comment.all
   end

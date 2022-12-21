@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
+  before_action :select_post, only: [:show]
+  
   def index
       render json: Post.all
+  end
+
+  def show 
+      render json: @post, serializer: PostCommentSerializer
   end
 
   def create

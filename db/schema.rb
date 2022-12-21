@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
-    t.integer "trick_id"
+    t.integer "post_id"
     t.integer "rider_id"
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.boolean "exists?"
     t.float "longitude"
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
   create_table "posts", force: :cascade do |t|
     t.string "thumbnail"
     t.string "clip"
-    t.string "filmer"
+    t.string "filmed_by"
     t.integer "rider_id"
     t.integer "location_id"
     t.datetime "date"
@@ -54,6 +55,9 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
     t.string "bio"
     t.integer "age"
     t.boolean "professional"
+    t.string "username"
+    t.string "password_digest"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

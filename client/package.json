@@ -1,8 +1,7 @@
 {
-  "name": "react-rails-api-project-template-client",
+  "name": "phase-5-final",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
   "engines": {
     "node": "16.x"
   },
@@ -15,6 +14,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",

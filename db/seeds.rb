@@ -15,6 +15,19 @@ puts "location destroyed"
 puts "post destroyed"
 puts "comment destroyed"
 
+Rider.create(
+    name: "Admin",
+    instagram: Faker::Name.name,
+    image: Faker::LoremFlickr.image,
+    city: Faker::Address.city,
+    frame: Faker::Color.color_name,
+    bio: "bmx rider",
+    age: Faker::Number.between(from: 12, to: 55),
+    professional: Faker::Boolean.boolean,
+    username: "ADMIN",
+    password: "12345",
+    admin: true
+)
 7.times {
     Rider.create(
         name: Faker::FunnyName.name,
@@ -24,10 +37,13 @@ puts "comment destroyed"
         frame: Faker::Color.color_name,
         bio: "bmx rider",
         age: Faker::Number.between(from: 12, to: 55),
-        professional: Faker::Boolean.boolean
+        professional: Faker::Boolean.boolean,
+        username: Faker::Name.name,
+        password: "12345",
+        admin: false
     )
 }
-puts "Done creating rider"
+puts "Done Creating Riders"
 
 10.times {
     Location.create(
@@ -37,13 +53,13 @@ puts "Done creating rider"
         latitude: Faker::Number.between(from: 10, to: 50)
     )
 }
-puts "Done creating location"
+puts "Done Creating Locations"
 
 15.times {
     Post.create(
         thumbnail: Faker::LoremFlickr.image,
         clip: Faker::LoremFlickr.image,
-        filmer: Faker::FunnyName.name,
+        filmed_by: Faker::FunnyName.name,
         date: Faker::Date.forward(days: 365),
         likes: Faker::Number.rand(1..10),
         rider_id: Rider.all.ids.sample,
@@ -51,4 +67,15 @@ puts "Done creating location"
     )
 }
 
+puts "Done Creating Posts"
+
+50.times {
+    Comment.create(
+        body: "text here",
+        post_id: Post.all.ids.sample,
+        rider_id: Rider.all.ids.sample,
+        likes: Faker::Number.rand(1..30),
+    )
+}
+puts "Done Creating Comments"
 puts "Done Creating!!"

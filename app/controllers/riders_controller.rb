@@ -1,4 +1,6 @@
 class RidersController < ApplicationController
+  before_action :select_rider, only: [:show]
+  
   def index
       render json: Rider.all
   end
