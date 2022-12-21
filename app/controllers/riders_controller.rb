@@ -35,6 +35,18 @@ class RidersController < ApplicationController
   end
 
   def rider_params 
-      params.permit( :name, :instagram, :image, :city, :frame, :bio, :age, :professional )
+      params.permit( 
+        :name, 
+        :instagram, 
+        :image, 
+        :city, 
+        :frame, 
+        :bio, 
+        :age, 
+        :professional,
+        :username,
+        :password,
+        :admin
+      )
   end
 end
