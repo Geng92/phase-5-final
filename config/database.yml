@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: final
+  database: postgres://final_user:XfA5a7jx7ApIEFecoRPueKnMElz05H0d@dpg-cecell9a6gduvcvb5vsg-a/final
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
