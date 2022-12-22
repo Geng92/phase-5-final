@@ -14,7 +14,7 @@ class RidersController < ApplicationController
   end
 
   def show
-      render json: @rider, serializer: RiderSerializer
+      render json: @rider, serializer: RiderPostSerializer
   end
 
   def create

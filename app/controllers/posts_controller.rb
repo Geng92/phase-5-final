@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show 
-      render json: @post, serializer: PostCommentSerializer
+      render json: @post, serializer: PostCommentSerializer, include: [ 'comments', 'comments.rider', 'riders' ]
   end
 
   def create

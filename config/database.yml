@@ -81,3 +81,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  database: final_yhm7
+  username: geng
+  password: C6utunclklex4Som96hxqUdhDCCwe5dE
