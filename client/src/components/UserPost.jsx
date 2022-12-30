@@ -1,7 +1,16 @@
 import React from 'react'
 
-export default function UserContainer() {
+export default function UserPost() {
   return (
-    <div>UserContainer</div>
+    <div>
+      UserContainer
+      {thumbnail} 
+      {clip}
+      {filmed_by}
+      {rider_id}
+      {location_id}
+      {date}
+      {likes}
+    </div>
   )
 }

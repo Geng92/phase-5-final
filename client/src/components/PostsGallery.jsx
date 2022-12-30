@@ -1,7 +1,19 @@
 import React from 'react'
+import Post from './Post'
 
-export default function PostsContainer() {
+export default function PostsGallery({ posts }) {
+    
+    const postCards = posts.map((post) => 
+        <Post 
+            key={post.id}
+            id={post.id}
+            post={post}
+        />
+    )
+
   return (
-    <div>PostsContainer</div>
+    <div>
+        PostsGallery
+    </div>
   )
 }

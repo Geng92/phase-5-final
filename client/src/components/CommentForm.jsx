@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const emptyForm = {
     body: ""
 }
-export default function CommentForm() {
+export default function CommentForm({ addComment }) {
     const [ formData, setFormData ] = useState(emptyForm);
 
     const handleChange = (e) => {
@@ -24,21 +24,22 @@ export default function CommentForm() {
         })
         .then((res) => res.json())
         .then((newComment) => {
-          addTrack(newComment)
+          addComment(newComment)
       });
         setFormData(emptyForm)
       }
   return (
     <div>
-        CommentForm
+      <form onSubmit={handleSubmit}>
         <input
             name='body'
             type='text'
             placeholder='Comment here...'
             value={formData.body}
             onChange={handleChange}
-        >
+            >
         </input>
+      </form>
     </div>
   )
 }

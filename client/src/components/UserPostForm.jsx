@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const emptyForm = {
     thumbnail: '',
     clip: '',
-    filmer: ''
+    filmed_by: ''
 }
-export default function UserContainer() {
+export default function UserPostForm({ updatePosts }) {
     const [ formData, setFormData ] = useState(emptyForm);
 
     const handleChange = (e) => {
@@ -26,7 +26,7 @@ export default function UserContainer() {
       })
       .then((res) => res.json())
       .then((newPost) => {
-        addPost(newPost)
+        updatePosts(newPost)
     });
       setFormData(emptyForm)
     }
@@ -35,6 +35,8 @@ export default function UserContainer() {
   return (
     <div>
         UserContainer
+
+        {/* // newPost ? 'add post' : null  < hide show form */}
         <input
             name='body'
             type='text'

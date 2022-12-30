@@ -1,7 +1,7 @@
-class RiderPostCommentSerializer < RiderPostSerializer
-  attributes :comments
+class RiderPostCommentSerializer < PostSerializer
+  # attributes :comments
 
-  def comments
-    self.object.comments
-  end
+  # def comments
+  #   self.object.comments
+  # end
 end

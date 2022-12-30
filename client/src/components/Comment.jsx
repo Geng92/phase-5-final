@@ -1,8 +1,13 @@
 import React from 'react'
 
-export default function Comment() {
-  
+export default function Comment({ comment }) {
+    const { body } = comment
+
     return (
-    <div>Comment</div>
+    <div>
+        Comment
+        {body}
+        {/* add the rider_id  */}
+    </div>
   )
 }
