@@ -9,7 +9,7 @@ const emptyForm = {
   frame: "",
   bio: "",
   age: "",
-  username: "",
+  user_name: "",
   password: ""
 }
 export default function SignUp({ riders, setRiders }) {
@@ -47,8 +47,7 @@ export default function SignUp({ riders, setRiders }) {
     const handleLogin = (formData) => {
         sessionStorage.setItem("user_id", formData.id);
     }
-  
-  
+
   return (
     <div>
       SignUp

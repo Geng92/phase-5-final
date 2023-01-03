@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function UserPost() {
+export default function UserPost({ UserPost }) {
   return (
     <div>
       UserContainer

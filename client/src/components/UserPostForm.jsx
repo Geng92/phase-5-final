@@ -1,13 +1,38 @@
 import React, {useState} from 'react'
 
-const emptyForm = {
-    thumbnail: '',
-    clip: '',
-    filmed_by: ''
-}
-export default function UserPostForm({ updatePosts }) {
-    const [ formData, setFormData ] = useState(emptyForm);
+// const emptyForm = {
+//     thumbnail: '',
+//     clip: '',
+//     filmed_by: ''
+// }
+export default function UserPostForm({ user, updatePosts }) {
+    const [ formData, setFormData ] = useState("");
+    const { id } = user;
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const newPost ={
+        location_id: formData.location_id,
+        rider_id: id,
+        thumbnail: formData.thumbnail,
+        clip: formData.clip,
+        filmed_by: formData.filmed_by,
+        date: formData.date     
+      }
+      fetch(`/posts`, {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({...formData})
+      })
+      .then((res) => res.json())
+      .then((newPost) => {
+        updatePosts(newPost)
+      });
+    }
+    
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData({
@@ -15,27 +40,10 @@ export default function UserPostForm({ updatePosts }) {
           [name]: value})
     }
     
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      fetch(`/posts`, {
-        method: 'POST',
-        headers: {
-          "Content-type": "application/json",
-      },
-      body: JSON.stringify({...formData})
-      })
-      .then((res) => res.json())
-      .then((newPost) => {
-        updatePosts(newPost)
-    });
-      setFormData(emptyForm)
-    }
-
-
-  return (
-    <div>
-        UserContainer
-
+    
+    return (
+      <div>
+      <form onSubmit={handleSubmit}>
         {/* // newPost ? 'add post' : null  < hide show form */}
         <input
             name='body'
@@ -43,7 +51,7 @@ export default function UserPostForm({ updatePosts }) {
             placeholder='thumbnail...'
             value={formData.thumbnail}
             onChange={handleChange}
-        >
+            >
         </input>
         <input
             name='clip'
@@ -51,16 +59,18 @@ export default function UserPostForm({ updatePosts }) {
             placeholder='link to clip'
             value={formData.clip}
             onChange={handleChange}
-        >
+            >
         </input>
         <input
             name='filmer'
             type='text'
             placeholder='who filmed...'
-            value={formData.filmer}
+            value={formData.filmed_by}
             onChange={handleChange}
-        >
+            >
         </input>
+        <button onClick={handleSubmit}>Submit</button>
+      </form>
     </div>
   )
 }

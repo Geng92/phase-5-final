@@ -1,6 +1,7 @@
 class PostCommentSerializer < PostSerializer
   attributes :comments
-  # has_many :comments
+  # has_one :rider
+  # has_one :location
   
   def comments
     self.object.comments

@@ -2,27 +2,31 @@ import React, { useState, useEffect } from 'react'
 import CommentForm from './CommentForm'
 import CommentsGallery from './CommentsGallery'
 
-export default function CommentsContainer() {
-    const [ comments, setComments ] = useState([])
+export default function CommentsContainer({ post }) {
+    
+    // const { body } = 
+    const [ postComments, setPostComments ] = useState([])
 
+    // const { comments } = post
     useEffect(() => {
         fetch(`/comments`)
         .then((res) => res.json())
-        .then((comments) => setComments(comments))
+        .then((comments) => setPostComments(comments))
     },[])
 
-    const handleAddComment = (newComment) => {
-        setComments(comments => [...comments, newComment])
+    const handleAddComment = (newPostComment) => {
+        setPostComments(postComments => [...postComments, newPostComment])
     }
 
     return (
     <div>
-        CommentsContainer
-        <CommentForm 
+        <CommentForm
+            post={post} 
             onAddComment={handleAddComment} 
         />
         <CommentsGallery 
-            comments={comments} 
+          post={post}
+          postComments={postComments}   
         />
     </div>
   )

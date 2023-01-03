@@ -14,6 +14,7 @@ export default function PostsGallery({ posts }) {
   return (
     <div>
         PostsGallery
+        {postCards}
     </div>
   )
 }

@@ -38,12 +38,14 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
     t.string "thumbnail"
     t.string "clip"
     t.string "filmed_by"
-    t.integer "rider_id"
-    t.integer "location_id"
+    t.bigint "rider_id", null: false
+    t.bigint "location_id", null: false
     t.datetime "date"
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_posts_on_location_id"
+    t.index ["rider_id"], name: "index_posts_on_rider_id"
   end
 
   create_table "riders", force: :cascade do |t|
@@ -62,4 +64,6 @@ ActiveRecord::Schema.define(version: 2022_12_16_190300) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "posts", "locations"
+  add_foreign_key "posts", "riders"
 end

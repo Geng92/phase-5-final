@@ -11,9 +11,9 @@ export default function Login() {
         if (currentRider) {
             navigate("/")
         }
-    },[]);
+    },[navigate]);
 
-    const { username, password } = formData
+    const { username, password } = formData;
 
     const handleLogin = (rider) => {
         sessionStorage.setItem("user_id", rider.id);
@@ -47,9 +47,31 @@ export default function Login() {
     }
 
     const handleClick = () => {
-        navigate("/signup")
+        navigate("/sign_up")
     }
   return (
-    <div>Login</div>
+    <div>
+        Login to gain access
+      <form className="mt-8 space-y-6" onSubmit={onSubmit}>
+        <input 
+            type="text"
+            name="username"
+            placeholder='username'
+            value={username}
+            onChange={handleChange}
+            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+        />
+        <input 
+            type="text"
+            name="password"
+            placeholder='password'
+            value={password}
+            onChange={handleChange}
+        />
+        <button value="login">login</button>
+        <button onClick={handleClick}>signup</button>
+      </form>
+      {errors? <div>{errors}</div> : null}    
+    </div>
   )
 }

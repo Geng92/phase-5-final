@@ -7,8 +7,8 @@ import UserProfile from './UserProfile'
 
 export default function UserContainer({ riders }) {
     const [ user, setUser ] = useState([])
-    const [ userPosts, setUserPosts ] = useState([])
-    const [ userComments, setUserComments ] = useState([])
+    const [ posts, setPosts ] = useState([])
+    // const [ userComments, setUserComments ] = useState([])
     // const [ combinedData, setCombinedData] = useState([])
     const navigate = useNavigate();
     
@@ -21,19 +21,23 @@ export default function UserContainer({ riders }) {
             .then((res) => res.json())
             .then((user) => setUser(user))
         }
-    },[userPosts])
+    },[posts])
+    
+    const updatePosts = (newPost) => {
+        setPosts([newPost, ...posts])
+    }
 
     useEffect(() => {
         fetch(`/posts`)
         .then((res) => res.json())
-        .then((userPosts) => setUserPosts(userPosts))
+        .then((posts) => setPosts(posts))
     },[])
 
-    useEffect(() => {
-        fetch(`/comments`)
-        .then((res) => res.json())
-        .then((userComments) => setUserComments(userComments))
-    })
+    // useEffect(() => {
+    //     fetch(`/comments`)
+    //     .then((res) => res.json())
+    //     .then((userComments) => setUserComments(userComments))
+    // })
 
     // useEffect(() => {
     //     Promise.all([
@@ -50,18 +54,23 @@ export default function UserContainer({ riders }) {
     //     })
     // },[])
 
-    const updatePosts = (newPost) => {
-        setUserPosts([newPost, ...userPosts])
-    }
 
 
   return (
     <div>
-        UserContainer
-        <UserProfile  user ={user} />
-        <UserPostForm user={user} updatePosts={updatePosts} />
-        <UserPostsGallery userPosts={userPosts} />
-        <UserCommentGallery userComments={userComments} />
+        <UserProfile  
+            user ={user} 
+        />
+        <UserPostForm 
+            user={user} 
+            updatePosts={updatePosts} 
+        />
+        <UserPostsGallery 
+            user={user} 
+        />
+        <UserCommentGallery 
+            user={user}
+        />
     </div>
   )
 }

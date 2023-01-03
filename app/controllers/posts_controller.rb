@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :select_post, only: [:show]
   
   def index
-      render json: Post.all
+      render json: Post.all.order(:date).reverse
   end
 
   def show 

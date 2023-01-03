@@ -3,8 +3,11 @@ import CommentsContainer from './CommentsContainer'
 
 
 export default function Post({ post }) {
-    const { thumbnail, clip, filmed_by, date, likes } = post
+    const { thumbnail, clip, filmed_by, date, likes} = post
   
+    // const postComments = comments?.map((comment) =>
+    //   <CommentsContainer key={comment.id} id={comment.id} comment={comment}/>
+    // )
     return (
     <div>
         Post
@@ -13,7 +16,7 @@ export default function Post({ post }) {
         {filmed_by}
         {date}
         {likes}
-        <CommentsContainer />
+        <CommentsContainer post={post}/>
     </div>
   )
 }

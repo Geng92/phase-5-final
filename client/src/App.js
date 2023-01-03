@@ -37,10 +37,10 @@ function App() {
       <Routes >
         <Route path='/' element={<UserContainer riders={riders}/>} />
         <Route path='/login' element={<Login riders={riders} setRiders={setRiders}/>} />
-        <Route path='/signup' element={<SignUp />} />
+        <Route path='/sign_up' element={<SignUp />} />
         <Route path='/riders' element={<RidersContainer riders={riders}/>} />
         <Route path='/locations' element={<LocationsContainer locations={locations}/>} />
-        <Route path='/posts' element={<PostsContainer posts={posts}/>} />
+        <Route path='/posts' element={<PostsContainer posts={posts} setPosts={setPosts}/>} />
       </Routes>
     </div>
   );

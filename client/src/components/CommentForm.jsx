@@ -3,8 +3,9 @@ import React, {useState} from 'react'
 const emptyForm = {
     body: ""
 }
-export default function CommentForm({ addComment }) {
+export default function CommentForm({ post, addComment }) {
     const [ formData, setFormData ] = useState(emptyForm);
+    const {id} = post
 
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -15,12 +16,19 @@ export default function CommentForm({ addComment }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const newComment ={
+          post_id: id,
+          rider_id: formData.rider_id,
+          body: formData.body,
+          likes: formData.likes
+        }
         fetch(`/comments`, {
           method: 'POST',
           headers: {
+            "Accept": "application/json",
             "Content-type": "application/json",
-        },
-        body: JSON.stringify({...formData})
+          },
+          body: JSON.stringify({newComment})
         })
         .then((res) => res.json())
         .then((newComment) => {
@@ -39,6 +47,7 @@ export default function CommentForm({ addComment }) {
             onChange={handleChange}
             >
         </input>
+        <button onClick={handleSubmit}>add comment</button>
       </form>
     </div>
   )
