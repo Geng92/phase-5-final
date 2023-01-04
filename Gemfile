@@ -49,4 +49,10 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
 end
 
-gem "active_model_serializers", "~> 0.10.12"
+gem "active_model_serializers", "~> 0.10.13"
+
+gem "image_processing", "~> 1.12"
+
+gem "aws-sdk-s3", require: false
+
+# gem "activestorage", "~> 6.1.3.2"

@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 
-const emptyForm = {
-    body: ""
-}
-export default function CommentForm({ post, addComment }) {
-    const [ formData, setFormData ] = useState(emptyForm);
-    const {id} = post
-
+// const emptyForm = {
+//     body: ""
+// }
+export default function CommentForm({ user, post, addComment }) {
+    const [ formData, setFormData ] = useState("");
+    
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData({
@@ -17,8 +16,8 @@ export default function CommentForm({ post, addComment }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newComment ={
-          post_id: id,
-          rider_id: formData.rider_id,
+          post_id: post.id,
+          rider_id: user.id,
           body: formData.body,
           likes: formData.likes
         }
@@ -28,13 +27,13 @@ export default function CommentForm({ post, addComment }) {
             "Accept": "application/json",
             "Content-type": "application/json",
           },
-          body: JSON.stringify({newComment})
+          body: JSON.stringify(newComment)
         })
         .then((res) => res.json())
-        .then((newComment) => {
-          addComment(newComment)
+        .then((data) => {
+          addComment(data)
       });
-        setFormData(emptyForm)
+        // setFormData(emptyForm)
       }
   return (
     <div>
@@ -47,7 +46,7 @@ export default function CommentForm({ post, addComment }) {
             onChange={handleChange}
             >
         </input>
-        <button onClick={handleSubmit}>add comment</button>
+        <button type="submit">add comment</button>
       </form>
     </div>
   )

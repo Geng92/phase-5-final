@@ -7,6 +7,7 @@ export default function NavBar() {
 
   const handleLogOut = () => {
       sessionStorage.removeItem("user_id")
+      //some setState thing
       navigate('/login')
   }
   return (

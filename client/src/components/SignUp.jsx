@@ -12,13 +12,13 @@ const emptyForm = {
   user_name: "",
   password: ""
 }
-export default function SignUp({ riders, setRiders }) {
+export default function SignUp({ riders, addRider }) {
   const [ formData, setFormData ] = useState(emptyForm);
     const navigate = useNavigate();
     
-    const addRider = (newRider) => {
-        setRiders([...riders,newRider])
-    }
+    // const addRider = (newRider) => {
+    //     setRiders([...riders,newRider])
+    // }
     
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -38,7 +38,8 @@ export default function SignUp({ riders, setRiders }) {
         })
         .then((res) => res.json())
         .then((newRider) => {
-            addRider(newRider)
+            // addRider(newRider)
+            sessionStorage.setItem("user_id", newRider.id)
         })
         .then(handleLogin(formData))
         .then(navigate("/")) 
@@ -116,6 +117,7 @@ export default function SignUp({ riders, setRiders }) {
           onChange={handleChange}
         />
       </form>
+      <button onClick={handleSubmit}>signup</button>
     </div>
   )
 }

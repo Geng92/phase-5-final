@@ -19,6 +19,7 @@ class RidersController < ApplicationController
 
   def create
       rider = Rider.create!(rider_params)
+      session[:user_id] = rider.id
       render json: rider, status: :created
   end
 

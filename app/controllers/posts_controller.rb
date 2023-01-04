@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :select_post, only: [:show]
+  before_action :select_post, only: [:show, :update]
   
   def index
       render json: Post.all.order(:date).reverse
@@ -20,6 +20,15 @@ class PostsController < ApplicationController
       head :no_content
   end
 
+  def update
+    if @post
+        @post.update(post_params)
+        render json: @post
+    else
+        render_not_found_response 
+    end
+  end
+
   private
 
   def select_post 
@@ -27,6 +36,8 @@ class PostsController < ApplicationController
   end
 
   def post_params 
-      params.permit(:rider_id, :location_id, :thumbnail, :clip, :filmed_by, :date, :likes)
+      params.permit(:rider_id, :thumbnail, :clip, 
+        :filmed_by, :date, :likes, 
+        :location => [:name, :description, :longitude, :latitude, :exists?])
   end
 end

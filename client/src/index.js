@@ -7,8 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <div className="w-full h-full bg-no-repeat background-image: [url(https://www.sandmbikes.com/wp-content/uploads/2019/05/spec.jpg)]">
+      <App />
+  </div>
+    </BrowserRouter>
 );
 
 

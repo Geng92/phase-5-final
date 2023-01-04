@@ -3,7 +3,7 @@ class CommentSerializer < ActiveModel::Serializer
   has_one :rider
   has_one :post
 
-  def rider_id 
-    self.object.rider.name
-  end
+  # def rider_id 
+  #   self.object.Rider.name
+  # end
 end

@@ -5,14 +5,13 @@ import React, {useState} from 'react'
 //     clip: '',
 //     filmed_by: ''
 // }
-export default function UserPostForm({ user, updatePosts }) {
+export default function UserPostForm({ user, onNewPost }) {
     const [ formData, setFormData ] = useState("");
     const { id } = user;
 
     const handleSubmit = (e) => {
       e.preventDefault();
       const newPost ={
-        location_id: formData.location_id,
         rider_id: id,
         thumbnail: formData.thumbnail,
         clip: formData.clip,
@@ -25,11 +24,11 @@ export default function UserPostForm({ user, updatePosts }) {
           "Accept": "application/json",
           "Content-type": "application/json",
         },
-        body: JSON.stringify({...formData})
+        body: JSON.stringify(newPost)
       })
       .then((res) => res.json())
-      .then((newPost) => {
-        updatePosts(newPost)
+      .then((data) => {
+        onNewPost(data)
       });
     }
     
@@ -46,7 +45,7 @@ export default function UserPostForm({ user, updatePosts }) {
       <form onSubmit={handleSubmit}>
         {/* // newPost ? 'add post' : null  < hide show form */}
         <input
-            name='body'
+            name='thumbnail'
             type='text'
             placeholder='thumbnail...'
             value={formData.thumbnail}
@@ -62,14 +61,22 @@ export default function UserPostForm({ user, updatePosts }) {
             >
         </input>
         <input
-            name='filmer'
+            name='filmed_by'
             type='text'
             placeholder='who filmed...'
             value={formData.filmed_by}
             onChange={handleChange}
             >
         </input>
-        <button onClick={handleSubmit}>Submit</button>
+        <input
+            name='date'
+            type='datetime'
+            placeholder='date'
+            value={formData.date}
+            onChange={handleChange}
+            >
+        </input>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
