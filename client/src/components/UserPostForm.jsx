@@ -39,7 +39,6 @@ export default function UserPostForm({ user, onNewPost }) {
           [name]: value})
     }
     
-    
     return (
       <div>
       <form onSubmit={handleSubmit}>

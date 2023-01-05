@@ -13,12 +13,8 @@ const emptyForm = {
   password: ""
 }
 export default function SignUp({ riders, addRider }) {
-  const [ formData, setFormData ] = useState(emptyForm);
+    const [ formData, setFormData ] = useState(emptyForm);
     const navigate = useNavigate();
-    
-    // const addRider = (newRider) => {
-    //     setRiders([...riders,newRider])
-    // }
     
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -117,7 +113,7 @@ export default function SignUp({ riders, addRider }) {
           onChange={handleChange}
         />
       </form>
-      <button onClick={handleSubmit}>signup</button>
+      <button onClick={handleSubmit}>Sign Up!</button>
     </div>
   )
 }

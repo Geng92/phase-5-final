@@ -8,12 +8,12 @@ export default function PostsContainer() {
   const [ postToEdit, setPostToEdit ] = useState([])
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     const currentRider = sessionStorage.getItem("user_id")
     if (currentRider == null){
         navigate("/login")
-    }else{
+    }
+    else{
       fetch(`/posts`)
       .then((res) => res.json())
       .then((posts) => setPosts(posts));
@@ -24,22 +24,24 @@ export default function PostsContainer() {
     const currentRider = sessionStorage.getItem("user_id")
     if (currentRider == null){
         navigate("/login")
-    }else{
-        fetch(`/riders/${currentRider}`)
-        .then((res) => res.json())
-        .then((user) => setUserAdmin(user))
+    }
+    else{
+      fetch(`/riders/${currentRider}`)
+      .then((res) => res.json())
+      .then((user) => setUserAdmin(user))
     }
   },[]);
-
 
   const onUpdatePost = (updatedPost) => {
     setPosts(posts => posts.map(originalPost => {
       if (originalPost.id === updatedPost.id) {
         return updatedPost;
-      } else {
+      } 
+      else {
         return originalPost;
       }
-    }))
+     })
+    )
     setPostToEdit(null);
   };
 

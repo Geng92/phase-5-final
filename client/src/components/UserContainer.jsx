@@ -6,25 +6,27 @@ import UserPostForm from './UserPostForm'
 import UserPostsGallery from './UserPostsGallery'
 import UserProfile from './UserProfile'
 
-export default function UserContainer({ user, setUser, userPosts, setPosts }) {
-    // const [ user, setUser ] = useState({})
-    // const [ posts, setPosts ] = useState([])
+export default function UserContainer({ 
+    user, 
+    setUser, 
+    userPosts, 
+    setPosts 
+  }) 
+{
     const [ postToEdit, setPostToEdit ] = useState([]) 
-    // // const [ userComments, setUserComments ] = useState([])
-    // // const [ combinedData, setCombinedData] = useState([])
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     
     // const userPosts = posts.filter((post) => post.rider_id == user.id )
-    // useEffect(() => {
-    //     const currentRider = sessionStorage.getItem("user_id")
-    //     if (currentRider == null){
-    //         navigate("/login")
-    //     }else{
-    //         fetch(`/riders/${currentRider}`)
-    //         .then((res) => res.json())
-    //         .then((user) => setUser(user))
-    //     }
-    // },[posts])
+    useEffect(() => {
+        const currentRider = sessionStorage.getItem("user_id")
+        if (currentRider == null){
+            navigate("/login")
+        }else{
+            fetch(`/riders/${currentRider}`)
+            .then((res) => res.json())
+            .then((user) => setUser(user))
+        }
+    },[])
 
     const deletePost = (id) => {
         fetch(`/posts/${id}`, {
@@ -39,7 +41,6 @@ export default function UserContainer({ user, setUser, userPosts, setPosts }) {
       })
     }
 
- 
     const onUpdatePost = (updatedPost) => {
         setPosts(posts => posts.map(originalPost => {
           if (originalPost.id === updatedPost.id) {
@@ -74,8 +75,6 @@ export default function UserContainer({ user, setUser, userPosts, setPosts }) {
     //         setCombinedData(dataPosts.concat(dataComments))
     //     })
     // },[])
-
-
 
   return (
     <div>

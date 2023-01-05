@@ -5,6 +5,7 @@ import React, {useState} from 'react'
 // }
 export default function CommentForm({ user, post, addComment }) {
     const [ formData, setFormData ] = useState("");
+    const { id } = post
     
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -16,7 +17,7 @@ export default function CommentForm({ user, post, addComment }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newComment ={
-          post_id: post.id,
+          post_id: id,
           rider_id: user.id,
           body: formData.body,
           likes: formData.likes

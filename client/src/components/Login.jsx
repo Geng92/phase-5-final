@@ -11,7 +11,7 @@ export default function Login() {
         if (currentRider) {
             navigate("/")
         }
-    },[navigate]);
+    },[]);
 
     const { username, password } = formData;
 
@@ -51,47 +51,45 @@ export default function Login() {
     }
 
   return (
-    <div class="bg-[url(https://www.sandmbikes.com/wp-content/uploads/2019/05/spec.jpg)]">
-        <h1
-          class="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
-          >
-            Login to gain access
-        </h1>
-
+    <div >
+      <h1
+        class="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl text-center"
+      >
+        Login to gain access
+      </h1>
       <form action="#" class="mt-8 grid grid-cols-6 gap-6" onSubmit={onSubmit}>
         <label for="Username" class="block text-sm font-medium text-gray-700">
-              Username
-        </label>
+            Username
             <input 
-            type="text"
-            name="username"
-            id="Username"
-            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-            placeholder='username'
-            value={username}
-            onChange={handleChange}
-            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                type="text"
+                name="username"
+                id="Username"
+                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                placeholder='username'
+                value={username}
+                onChange={handleChange}
+                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
             />
-          <div class="col-span-6 sm:col-span-3">
-
+        </label>
+        <div class="col-span-6 sm:col-span-3">
           <label
               for="Password"
               class="block text-sm font-medium text-gray-700"
-              >
+          >
               Password
+            <input 
+                type="password"
+                name="password"
+                id="Password"
+                placeholder='password'
+                value={password}
+                onChange={handleChange}
+                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                />
             </label>
-        <input 
-            type="password"
-            name="password"
-            id="Password"
-            placeholder='password'
-            value={password}
-            onChange={handleChange}
-            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-            />
         </div>
-        <button value="login">login</button>
-        <button onClick={handleClick}>signup</button>
+            <button value="login" class="hover mt-1 w-full rounded-md border-gray-200 bg-white text-lg text-black-700 shadow-sm">Login</button>
+            <button onClick={handleClick}>Create an Account</button>
       </form>
       {errors? <div>{errors}</div> : null}    
     </div>

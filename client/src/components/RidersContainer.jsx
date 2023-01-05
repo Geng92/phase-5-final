@@ -13,10 +13,11 @@ export default function RidersContainer() {
         const currentRider = sessionStorage.getItem("user_id")
         if (currentRider == null){
             navigate("/login")
-        }else{
-        fetch(`/riders`)
-        .then((res) => res.json())
-        .then((riders) => setRiders(riders));
+        }
+        else{
+          fetch(`/riders`)
+          .then((res) => res.json())
+          .then((riders) => setRiders(riders));
         }
     },[]);
 
