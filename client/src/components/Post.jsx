@@ -55,41 +55,45 @@ export default function Post({
     //   const embedUrl = "https://www.youtube.com/embed/"+embed[1]
     // }
     return (
-    <div class="flex flex-row border border-indigo-100 shadow-lg round object-none object-center bg-blue-200 w-full h-full">
-    <div class="text-center">
+    <div class="flex flex-row border border-indigo-100 shadow-lg round object-none object-center bg-blue-200 w-full h-315">
+    <div class="text-center w-560 h-315">
       { isVideo ? 
-      <img class="object-none object-center bg-black-300 w-5/8 " src={thumbnail} alt="thumbnail" />
+        <img 
+          class="object-scale-down w-560 h-315 object-center " 
+          src={thumbnail} 
+          alt="thumbnail" 
+        />
       : <iframe 
-        width="560" 
-        height="315" 
-        src={`https://www.youtube.com/embed/${embedURL}`} 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen
-      >
-      </iframe> }
+          width="560" 
+          height="315" 
+          src={`https://www.youtube.com/embed/${embedURL}`} 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+        >
+        </iframe> }
       {isVideo ?
       <button onClick={switchToVideo} class="text-xl hover:text-red-600 hover:font-bold" >Check It Out!</button>
       : null}
     </div>
 
       <div class="w-1/3 flex flex-col">
-        <div class="h-1/5 text-center text-xl my-3">  
+        <div class="h-1/5 text-center text-xl my-3 py-3 mx-3 border-2 border-slate-400 rounded-lg">  
           Filmed by: {filmed_by}
         </div>
-        <div class="h-1/5 text-center text-xl my-3">
+        <div class="h-1/5 text-center text-xl my-3 py-3 mx-3 border-2 border-slate-400 rounded-lg">
           {date}
         </div>
       {/* <button class="block text-sm font-medium text-gray-700" onClick={handleEditClick}>
         Edit Post
       </button> */}
-        <div class="px-30 h-1/5 text-center text-md ">
-          <button class="px-auto py-auto hover:bg-blue-300 hover:border-2 border-slate-300 rounded-xl" onClick={handleLike} >
-             Likes: {likes} 
+        <div class="px-30 h-1/5 text-center text-md py-3 mx-3 border-2 border-slate-400 rounded-lg">
+          <button class="px-10 py-auto hover:bg-blue-300 hover:border-2 border-slate-300 rounded-xl" onClick={handleLike} >
+             👍{likes} 
           </button>
         </div>
-        { user ? <button class="h-1/5 text-xl hover:bg-red-600 hover:text-white rounded-lg" onClick={handleDeleteClick}>
+        { user ? <button class="h-1/5 text-xl hover:bg-red-600 hover:text-white rounded-lg py-3 mx-3 border-2 border-slate-400" onClick={handleDeleteClick}>
           Delete
         </button> : null }
       </div>

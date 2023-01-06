@@ -13,11 +13,13 @@ export default function UserCommentGallery({ user }) {
     />
   )
   return (
-    <div>
-      <label for="Recent Comments" class="block text-sm font-medium text-gray-700">
+    <div class="border border-2 shadow-lg rounded-lg">
+      <label class="block text-center text-xl font-medium text-gray-700">
       Your Recent Comments
         </label>
+      <div class="text-center">
       {userCommentsCards}  
+      </div>
     </div>
   )
 }

@@ -72,6 +72,8 @@ function App() {
             setUser={setUser} 
             userPosts={userPosts} 
             setPosts={setPosts}
+            locations={locations}
+            setLocations={setLocations}
             setIsLogged={setIsLogged}
             refresh={refresh}
           />} 

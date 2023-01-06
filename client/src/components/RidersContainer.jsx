@@ -36,7 +36,10 @@ export default function RidersContainer({ refresh, setIsLogged }) {
 
 
   return (
-    <div>
+    <div class="bg-blue-200">
+        <label class="block text-xl my-3 text-center font-medium text-gray-700">
+            Riders
+        </label>
         <RiderDetail 
             rider={selectedRider}
         />

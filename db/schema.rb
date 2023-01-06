@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2023_01_03_211818) do
     t.string "name"
     t.string "description"
     t.boolean "exists?"
-    t.float "longitude"
-    t.float "latitude"
+    t.decimal "longitude"
+    t.decimal "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

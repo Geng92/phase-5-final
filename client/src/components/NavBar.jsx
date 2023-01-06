@@ -15,7 +15,7 @@ export default function NavBar({ user, isLogged, setIsLogged }) {
   return (
     <div class="w-screen shadow-lg bg-slate-200 border border-2 border-gray">
          <div class="flex flex-row justify-center antialiased hover:cursor-pointer">           
-            <div class="flex md:flex w-screen shadow-lg round justify-center">
+            <div class="flex md:flex w-screen shadow-lg round justify-end">
               <NavLink 
                 className="display: font-bold hover:text-red-600"  
                 to="/"

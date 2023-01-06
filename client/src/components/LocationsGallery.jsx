@@ -12,8 +12,10 @@ export default function LocationsGallery({ locations }) {
   )
 
   return (
-    <div>
-      Location
+    <div class="bg-blue-200">
+      <label class="block text-xl my-3 py-4 mx-60 text-center font-medium rounded-lg bg-slate-300 text-gray-700 border border-2 border-slate-400">
+        Locations 
+      </label>
       {locationCards}
     </div>
   )

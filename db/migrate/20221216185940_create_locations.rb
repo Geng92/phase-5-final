@@ -4,8 +4,8 @@ class CreateLocations < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.boolean :exists?
-      t.float :longitude
-      t.float :latitude
+      t.decimal :longitude
+      t.decimal :latitude
 
       t.timestamps
     end

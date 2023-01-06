@@ -84,14 +84,20 @@ export default function UserContainer({
 
   return (
     <div >
-      <div class="flex flex-row">
-        <div class="w-1/3">
+      <div class="flex flex-row bg-blue-200">
+        <div class="w-1/3 h-screen">
+        <div class="mt-2">
+
         <UserProfile  
             user ={user} 
             />
+        </div>
+        <div class="mt-5">
+
           <UserCommentGallery 
               user={user}
-          />
+              />
+              </div>
         </div>
 
         <div class="w-2/3"> 
@@ -99,9 +105,7 @@ export default function UserContainer({
             user ={user} 
             userPosts={userPosts} 
             onNewPost={onNewPost} 
-            />
-        
-      
+            />   
         {/* <div class="justify-end columns-1 border-gray-200 ">
         <UserEditPostForm 
             postToEdit={postToEdit}

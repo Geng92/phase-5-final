@@ -18,11 +18,14 @@ export default function CommentsGallery({
     )
 
     return (
-    <div>
+    <div >
       <div class="font-bold">
         Comments
       </div>
+      <div class="overflow-y-auto">
         {postComments}
+
+      </div>
     </div>
   )
 }

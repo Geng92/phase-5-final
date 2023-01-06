@@ -41,7 +41,7 @@ export default function UserPostForm({ user, onNewPost }) {
     }
     
     return (
-    <div class="bg-white w-full shadow rounded-lg p-5">
+    <div class="bg-gray-100 my-3 w-full shadow rounded-lg p-5">
       <label class="block text-sm text-center font-medium text-gray-700">
         Create a Post 
       </label>

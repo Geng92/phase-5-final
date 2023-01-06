@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocationDetails from './LocationDetails'
+import LocationForm from './LocationForm'
 import LocationsGallery from './LocationsGallery'
 
 export default function LocationsContainer({ locations, setLocations, setIsLogged, refresh }) {
@@ -30,9 +31,12 @@ export default function LocationsContainer({ locations, setLocations, setIsLogge
   
   return (
     <div>
-      Location
       <LocationDetails 
         location={selectedLocation}
+      />
+      <LocationForm
+        locations={locations}
+        setLocation={setLocations}
       />
       <LocationsGallery 
         locations={locations}

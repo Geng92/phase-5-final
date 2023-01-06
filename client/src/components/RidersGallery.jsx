@@ -19,7 +19,7 @@ export default function RidersGallery({
     
   return (
     <div>
-      <div class="text-center">
+      <div class="text-center my-3">
         <input 
             type="text" 
             placeholder="search riders..." 

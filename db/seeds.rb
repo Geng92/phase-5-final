@@ -49,8 +49,8 @@ puts "Done Creating Riders"
     Location.create(
         name: Faker::FunnyName.name,
         description: "the spot",
-        longitude: Faker::Number.between(from: 12, to: 55),
-        latitude: Faker::Number.between(from: 10, to: 50),
+        longitude: Faker::Address.longitude,
+        latitude: Faker::Address.latitude,
         exists?: Faker::Boolean.boolean
     )
 }
