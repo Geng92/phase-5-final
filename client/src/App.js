@@ -14,6 +14,7 @@ function App() {
   const [ posts, setPosts ] = useState([])
   const [ riders, setRiders ] = useState([])
   const [ locations, setLocations] = useState([]) 
+  const [ isLogged, setIsLogged ] = useState(false)
   const navigate = useNavigate();
   
   const userPosts = posts.filter((post) => post.rider_id == user.id )
@@ -28,7 +29,7 @@ function App() {
           .then((res) => res.json())
           .then((user) => setUser(user))
       }
-  },[])
+  },[user])
   
   useEffect(() => {
       fetch(`/posts`)
@@ -56,7 +57,7 @@ function App() {
     <>
     <div class="w-screen h-screen bg-blue-200 border border-2 border-gray" >
       {/* <img src="https://cdn.shopify.com/s/files/1/1490/5954/files/Screen_Shot_2020-04-22_at_2.45.22_PM_480x480.png?v=1587581136" class="absolute w-screen h-screen mix-blend-overlay"/> */}
-      <NavBar />
+      {  isLogged ? <NavBar setIsLogged={setIsLogged}/> : null}
       <Routes >
         <Route path='/' element={
           <UserContainer 
@@ -70,6 +71,8 @@ function App() {
           <Login 
             riders={riders} 
             setRiders={setRiders}
+            isLogged={isLogged}
+            setIsLogged={setIsLogged}
           />} 
         />
         <Route path='/sign_up' element={

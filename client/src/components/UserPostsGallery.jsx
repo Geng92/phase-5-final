@@ -30,11 +30,11 @@ export default function UserPostGallery({
   )
 
   return (
-    <div>
-      <label class="block text-sm font-medium text-gray-700">
+    <div >
+      <label class="block text-xl text-center font-medium text-gray-700">
       Recent Posts
       </label>
-      <div >
+      <div class="border border-indigo-100 shadow-lg round object-none object-center bg-blue-200 w-full h-full">
       {userPostCards}
       </div>
     </div>

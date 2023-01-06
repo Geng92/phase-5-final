@@ -19,7 +19,9 @@ export default function CommentsGallery({
 
     return (
     <div>
-        CommentsGallery
+      <div class="font-bold">
+        Comments
+      </div>
         {postComments}
     </div>
   )

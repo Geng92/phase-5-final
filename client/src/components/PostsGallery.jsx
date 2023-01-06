@@ -16,8 +16,8 @@ export default function PostsGallery({ posts, user, setPosts, onUpdatePost, onEd
     )
 
   return (
-    <div>
-        PostsGallery
+    <div class="text-center">
+        Latest Posts
         {postCards}
     </div>
   )

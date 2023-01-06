@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login({ isLogged, setIsLogged }) {
     const [ formData, setFormData ] = useState('');
     const [ errors, setErrors ] = useState([])
     const navigate = useNavigate();
@@ -35,10 +35,12 @@ export default function Login() {
                 res.json().then(currentRider => 
                     handleLogin(currentRider))
                     .then(() => {navigate("/")})
-            }else {
+                    setIsLogged(true)    
+            }
+            else {
                 res.json().then(json => setErrors(json.errors))
             }
-        })    
+        })
     }
 
     const handleChange = (e) => {
@@ -53,45 +55,68 @@ export default function Login() {
   return (
     <div >
       <h1
-        class="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl text-center"
+        class="mt-6 text-2xl py-2 font-bold text-gray-900 sm:text-3xl md:text-4xl text-center"
       >
-        Login to gain access
+        Welcome!
       </h1>
-      <form action="#" class="mt-8 grid grid-cols-6 gap-6" onSubmit={onSubmit}>
-        <label for="Username" class="block text-sm font-medium text-gray-700">
-            Username
+      <div class="text-center">
+      <form  onSubmit={onSubmit}>
+        <label  class="block text-lg font-medium text-gray-700">
+            Sign in
+            </label>
             <input 
                 type="text"
                 name="username"
                 id="Username"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                placeholder='username'
+                placeholder="username"
                 value={username}
                 onChange={handleChange}
-                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                class="mt-1 w-50 h-37 rounded-md border-gray-200 bg-white text-xl  text-gray-700 shadow-sm"
             />
-        </label>
         <div class="col-span-6 sm:col-span-3">
-          <label
+          {/* <label
               for="Password"
               class="block text-sm font-medium text-gray-700"
-          >
+              >
               Password
+              </label> */}
             <input 
                 type="password"
                 name="password"
                 id="Password"
-                placeholder='password'
+                placeholder='***********'
                 value={password}
                 onChange={handleChange}
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                class="mt-1 w-50 h-37 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
                 />
-            </label>
         </div>
-            <button value="login" class="hover mt-1 w-full rounded-md border-gray-200 bg-white text-lg text-black-700 shadow-sm">Login</button>
-            <button onClick={handleClick}>Create an Account</button>
+        <div>
+        <div class="py-2">
+            <button 
+                value="login" 
+                class="bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 rounded-lg"
+                >
+                Login
+            </button>
+        </div>
+        <div>
+            <label
+              for="Password"
+              class="block text-sm font-medium py-1 text-gray-700"
+              >
+              Don't have one?
+              </label>
+            <button 
+                onClick={handleClick}
+                class="bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg"
+                >
+            Create an Account
+            </button>
+            </div>
+            {errors? <div>{errors}</div> : null}    
+        </div>
       </form>
-      {errors? <div>{errors}</div> : null}    
+    </div>
     </div>
   )
 }

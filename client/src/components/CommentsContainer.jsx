@@ -23,7 +23,7 @@ export default function CommentsContainer({
     }
 
     return (
-    <div>
+    <div class="text-center">
         <CommentForm
             post={post}
             user={user} 

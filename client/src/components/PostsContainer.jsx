@@ -4,7 +4,7 @@ import PostsGallery from './PostsGallery'
 
 export default function PostsContainer({ user, posts, setPosts }) {
   // const [ posts, setPosts ] = useState([])
-  const [ userAdmin, setUserAdmin ] = useState([])
+  // const [ userAdmin, setUserAdmin ] = useState([])
   const [ postToEdit, setPostToEdit ] = useState([])
   const navigate = useNavigate();
 
@@ -18,19 +18,19 @@ export default function PostsContainer({ user, posts, setPosts }) {
       .then((res) => res.json())
       .then((posts) => setPosts(posts));
     }
-  },[navigate]);
-
-  useEffect(() => {
-    const currentRider = sessionStorage.getItem("user_id")
-    if (currentRider == null){
-        navigate("/login")
-    }
-    else{
-      fetch(`/riders/${currentRider}`)
-      .then((res) => res.json())
-      .then((user) => setUserAdmin(user))
-    }
   },[]);
+
+  // useEffect(() => {
+  //   const currentRider = sessionStorage.getItem("user_id")
+  //   if (currentRider == null){
+  //       navigate("/login")
+  //   }
+  //   else{
+  //     fetch(`/riders/${currentRider}`)
+  //     .then((res) => res.json())
+  //     .then((user) => setUserAdmin(user))
+  //   }
+  // },[]);
 
   const onUpdatePost = (updatedPost) => {
     setPosts(posts => posts.map(originalPost => {
@@ -51,7 +51,6 @@ export default function PostsContainer({ user, posts, setPosts }) {
 
   return (
     <div>
-        PostsContainer
         <PostsGallery
           user={user} 
           posts={posts}

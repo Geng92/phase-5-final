@@ -83,6 +83,9 @@ export default function UserContainer({
         <UserProfile  
             user ={user} 
             />
+          <UserCommentGallery 
+              user={user}
+          />
         </div>
 
         <div class="w-2/3"> 
@@ -108,9 +111,6 @@ export default function UserContainer({
             />
         </div>
         </div>
-        <UserCommentGallery 
-            user={user}
-        />
     </div>
   )
 }

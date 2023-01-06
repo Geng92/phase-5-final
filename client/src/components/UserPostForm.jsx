@@ -41,47 +41,65 @@ export default function UserPostForm({ user, onNewPost }) {
     }
     
     return (
-      <div class="bg-white w-full shadow rounded-lg p-5">
+    <div class="bg-white w-full shadow rounded-lg p-5">
+      <label class="block text-sm text-center font-medium text-gray-700">
+        Create a Post 
+      </label>
       <form onSubmit={handleSubmit} class="bg-gray-200 w-full rounded-lg shadow border p-2">
-        <div>
+        <div class="flex flex-row">
         {/* // newPost ? 'add post' : null  < hide show form */}
-        <input
-            name='thumbnail'
-            type='text'
-            placeholder='thumbnail...'
-            value={formData.thumbnail}
-            onChange={handleChange}
-            
+          <div class="w-1/5">
+            <input
+              name='thumbnail'
+              type='text'
+              placeholder='thumbnail...'
+              value={formData.thumbnail}
+              onChange={handleChange}
+              class="mt-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"  
             >
-        </input>
-        <input
-            name='clip'
-            type='text'
-            placeholder='link to clip'
-            value={formData.clip}
-            onChange={handleChange}
+            </input>
+          </div>
+          <div class="w-1/5">
+            <input
+              name='clip'
+              type='text'
+              placeholder='link to clip'
+              value={formData.clip}
+              onChange={handleChange}
+              class="mt-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             >
-        </input>
-        <input
-            name='filmed_by'
-            type='text'
-            placeholder='who filmed...'
-            value={formData.filmed_by}
-            onChange={handleChange}
+            </input>
+          </div>
+          <div class="w-1/5">
+            <input
+              name='filmed_by'
+              type='text'
+              placeholder='who filmed...'
+              value={formData.filmed_by}
+              onChange={handleChange}
+              class="mt-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             >
-        </input>
-        <input
-            name='date'
-            type='datetime'
-            placeholder='date'
-            value={formData.date}
-            onChange={handleChange}
+            </input>
+          </div>
+          <div class="w-1/5 bg-gray-200 rounded-sm">
+            <input
+              name='date'
+              type='date'
+              placeholder='date'
+              value={formData.date}
+              onChange={handleChange}
+              class="mt-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             >
-        </input>
-
-        </div>
-        <div class="w-2/3">
-        <button type="submit" class="float-right bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg">Submit</button>
+            </input>
+          </div>
+          <div class="w-1/5">
+            <button 
+              type="submit" 
+              class="bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

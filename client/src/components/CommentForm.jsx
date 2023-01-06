@@ -45,9 +45,15 @@ export default function CommentForm({ user, post, addComment }) {
             placeholder='Comment here...'
             value={formData.body}
             onChange={handleChange}
+            class="mt-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             >
         </input>
-        <button type="submit">add comment</button>
+        <button 
+          type="submit"
+          class="bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg"
+        >
+        add comment
+        </button>
       </form>
     </div>
   )
