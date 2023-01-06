@@ -10,7 +10,9 @@ export default function UserContainer({
     user, 
     setUser, 
     userPosts, 
-    setPosts 
+    setPosts,
+    setIsLogged,
+    refresh
   }) 
 {
     const [ postToEdit, setPostToEdit ] = useState([]) 
@@ -20,11 +22,15 @@ export default function UserContainer({
     useEffect(() => {
         const currentRider = sessionStorage.getItem("user_id")
         if (currentRider == null){
+            setIsLogged(false)
             navigate("/login")
-        }else{
-            fetch(`/riders/${currentRider}`)
+            refresh()
+        }
+        else{
+          fetch(`/riders/${currentRider}`)
             .then((res) => res.json())
             .then((user) => setUser(user))
+            setIsLogged(true)
         }
     },[])
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 const emptyForm = {
   name:"",
@@ -64,14 +64,15 @@ export default function SignUp({}) {
         }
       })
     }
+
     const handleLogin = (formData) => {
         sessionStorage.setItem("user_id", formData.id);
     }
 
   return (
-    <div class="text-center text-xl ">
+    <div className="text-center text-xl ">
       SignUp
-      <div class="text-center">
+      <div className="text-center">
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -82,7 +83,7 @@ export default function SignUp({}) {
           placeholder="name..." 
           value={formData.name}
           onChange={handleChange}
-          class="mt-1 w-50 h-37  mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37  mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
         <input 
           type="text" 
@@ -90,7 +91,7 @@ export default function SignUp({}) {
           placeholder="@. . . . . . . ." 
           value={formData.instagram}
           onChange={handleChange}
-          class="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
         <input 
           type="text" 
@@ -98,7 +99,7 @@ export default function SignUp({}) {
           placeholder="Picture" 
           value={formData.image}
           onChange={handleChange}
-          class="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
         </div>
         <div>
@@ -110,7 +111,7 @@ export default function SignUp({}) {
           placeholder="What city are you from?" 
           value={formData.city}
           onChange={handleChange}
-          class="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
         <input 
           type="text" 
@@ -136,7 +137,7 @@ export default function SignUp({}) {
           placeholder="Age?..." 
           value={formData.age}
           onChange={handleChange}
-          class="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
         </div>
         <div>
@@ -156,19 +157,29 @@ export default function SignUp({}) {
           placeholder="password..." 
           value={formData.password}
           onChange={handleChange}
-          class="mt-1 w-50 h-37 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
+          className="mt-1 w-50 h-37 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
           />
       </form>
       <button 
         onClick={handleSubmit}
-        class="bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 my-2 rounded-lg"
+        className="mx-2 bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 my-2 rounded-lg"
         >
       Sign Up!
       </button>
-      </div>
-        {errors ? <div class="text-center text-red-600 text-xl font-bold ">
-          Missed Something!
+    
+      <NavLink
+        to="/"
+      >
+        <button 
+          class="mx-2 bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 my-2 rounded-lg"
+        >
+          Have an Account?
+        </button>
+      </NavLink>
+        { errors ? <div class="text-center text-red-600 text-xl font-bold ">
+          Please Sign Up!
           </div> : null}
+      </div>
     </div>
   )
 }

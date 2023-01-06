@@ -34,8 +34,7 @@ export default function Login({ isLogged, setIsLogged }) {
             if(res.ok){
                 res.json().then(currentRider => 
                     handleLogin(currentRider))
-                    .then(() => {navigate("/")})
-                    setIsLogged(true)    
+                    .then(() => {navigate("/")})   
             }
             else {
                 res.json().then(json => setErrors(json.errors))
@@ -55,14 +54,14 @@ export default function Login({ isLogged, setIsLogged }) {
   return (
     <div >
       <h1
-        class="mt-6 text-2xl py-2 font-bold text-gray-900 sm:text-3xl md:text-4xl text-center"
+        className="mt-6 text-2xl py-2 font-bold text-gray-900 sm:text-3xl md:text-4xl text-center"
       >
-        Welcome!
+        Welcome to React Riders!
       </h1>
-      <div class="text-center">
+      <div className="text-center">
       <form  onSubmit={onSubmit}>
-        <label  class="block text-lg font-medium text-gray-700">
-            Sign in
+        <label  className="block text-lg font-medium text-gray-700">
+            Sign in!
             </label>
             <input 
                 type="text"
@@ -73,13 +72,7 @@ export default function Login({ isLogged, setIsLogged }) {
                 onChange={handleChange}
                 class="mt-1 w-50 h-37 rounded-md border-gray-200 bg-white text-xl  text-gray-700 shadow-sm"
             />
-        <div class="col-span-6 sm:col-span-3">
-          {/* <label
-              for="Password"
-              class="block text-sm font-medium text-gray-700"
-              >
-              Password
-              </label> */}
+        <div className="col-span-6 sm:col-span-3">
             <input 
                 type="password"
                 name="password"
@@ -91,29 +84,28 @@ export default function Login({ isLogged, setIsLogged }) {
                 />
         </div>
         <div>
-        <div class="py-2">
+        <div className="py-2">
             <button 
                 value="login" 
-                class="bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 rounded-lg"
+                className="bg-indigo-400 hover:bg-indigo-300 text-white text-xl p-2 rounded-lg"
                 >
                 Login
             </button>
         </div>
         <div>
             <label
-              for="Password"
-              class="block text-sm font-medium py-1 text-gray-700"
+              className="block text-sm font-medium py-1 text-gray-700"
               >
               Don't have one?
               </label>
             <button 
                 onClick={handleClick}
-                class="bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg"
+                className="bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg"
                 >
             Create an Account
             </button>
             </div>
-            {errors? <div>{errors}</div> : null}    
+            {errors? <div className="text-red-600">{errors}</div> : null}    
         </div>
       </form>
     </div>

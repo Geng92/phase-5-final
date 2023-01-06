@@ -19,14 +19,18 @@ export default function RidersGallery({
     
   return (
     <div>
+      <div class="text-center">
         <input 
             type="text" 
             placeholder="search riders..." 
             onChange={handleOnChange}
-            value={searchQuery} 
+            value={searchQuery}
+            class="mt-1 w-50 h-37 mx-1 rounded-md border-gray-200 bg-white text-xl text-gray-700 shadow-sm"
         />
-        Rider
-        {riderCards}
+      </div>
+      <div class="grid grid-cols-3">
+      {riderCards}
+      </div>
     </div>
   )
 }

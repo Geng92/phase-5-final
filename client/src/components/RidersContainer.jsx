@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import RiderDetail from './RiderDetail'
 import RidersGallery from './RidersGallery'
 
-export default function RidersContainer() {
+export default function RidersContainer({ refresh, setIsLogged }) {
     const [ riders, setRiders ] = useState([])
     const [ selectRiderId, setSelectRiderId ] = useState([])
     const [ searchQuery, setSearchQuery ] = useState("")
@@ -12,12 +12,15 @@ export default function RidersContainer() {
     useEffect(() => {
         const currentRider = sessionStorage.getItem("user_id")
         if (currentRider == null){
+            setIsLogged(false)
             navigate("/login")
+            refresh()
         }
         else{
           fetch(`/riders`)
           .then((res) => res.json())
           .then((riders) => setRiders(riders));
+          setIsLogged(true)
         }
     },[]);
 
@@ -27,14 +30,18 @@ export default function RidersContainer() {
         setSelectRiderId(rider.id)
     }
 
+    const ridersToDisplay = riders.filter((rider) => 
+        rider.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+
   return (
     <div>
-        Rider
         <RiderDetail 
             rider={selectedRider}
         />
         <RidersGallery 
-            riders={riders}
+            riders={ridersToDisplay}
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             onClickRider={handleSelectRider}

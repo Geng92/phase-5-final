@@ -19,9 +19,12 @@ function App() {
   
   const userPosts = posts.filter((post) => post.rider_id == user.id )
   
+  const refresh = () => window.location.reload(true)
+  
   useEffect(() => {
       const currentRider = sessionStorage.getItem("user_id")
       if (currentRider == null){
+          setIsLogged(false)
           navigate("/login")
       }
       else{
@@ -29,7 +32,7 @@ function App() {
           .then((res) => res.json())
           .then((user) => setUser(user))
       }
-  },[user])
+  },[])
   
   useEffect(() => {
       fetch(`/posts`)
@@ -56,8 +59,12 @@ function App() {
   return (
     <>
     <div class="w-screen h-screen bg-blue-200 border border-2 border-gray" >
-      {/* <img src="https://cdn.shopify.com/s/files/1/1490/5954/files/Screen_Shot_2020-04-22_at_2.45.22_PM_480x480.png?v=1587581136" class="absolute w-screen h-screen mix-blend-overlay"/> */}
-      {  isLogged ? <NavBar setIsLogged={setIsLogged}/> : null}
+      { isLogged ? 
+      <NavBar
+        user={user}
+        isLogged={isLogged} 
+        setIsLogged={setIsLogged}
+      /> : null}
       <Routes >
         <Route path='/' element={
           <UserContainer 
@@ -65,6 +72,8 @@ function App() {
             setUser={setUser} 
             userPosts={userPosts} 
             setPosts={setPosts}
+            setIsLogged={setIsLogged}
+            refresh={refresh}
           />} 
         />
         <Route path='/login' element={
@@ -84,18 +93,24 @@ function App() {
         <Route path='/riders' element={
           <RidersContainer 
             riders={riders}
+            refresh={refresh}
+            setIsLogged={setIsLogged}
           />} 
         />
         <Route path='/locations' element={
           <LocationsContainer 
             locations={locations} 
             setLocations={setLocations}
+            refresh={refresh}
+            setIsLogged={setIsLogged}
           />} 
         />
         <Route path='/posts' element={
           <PostsContainer 
             posts={posts}
             setPosts={setPosts}
+            refresh={refresh}
+            setIsLogged={setIsLogged}
           />} 
         />
       </Routes>

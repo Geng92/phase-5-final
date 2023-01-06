@@ -8,28 +8,26 @@ export default function Rider({ rider, onClickRider }) {
     }
 
   return (
-    <div class="w-screen bg-red-200 border border-3 border-black">
-        
+    <div class="w-screen bg-red-200 border border-3 border-black">      
         <div>
-        {name}
+          {name}
         </div>
         <div>
-        {instagram}
+          {instagram}
         </div>
-
-        <img src={image}/>
+          <img src={image}/>
         <label >
         <div>
-        {city}
+          {city}
         </div>
         <div>
-        {frame}
+          {frame}
         </div>
         <div>
-        {bio}
+          {bio}
         </div>
         <div>
-        {age}
+          {age}
         </div>
         </label>
     </div>

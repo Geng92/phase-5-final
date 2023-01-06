@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostsGallery from './PostsGallery'
 
-export default function PostsContainer({ user, posts, setPosts }) {
+export default function PostsContainer({ user, posts, setPosts, refresh, setIsLogged }) {
   // const [ posts, setPosts ] = useState([])
   // const [ userAdmin, setUserAdmin ] = useState([])
   const [ postToEdit, setPostToEdit ] = useState([])
@@ -11,12 +11,15 @@ export default function PostsContainer({ user, posts, setPosts }) {
   useEffect(() => {
     const currentRider = sessionStorage.getItem("user_id")
     if (currentRider == null){
+        setIsLogged(false)
         navigate("/login")
+        refresh()
     }
     else{
       fetch(`/posts`)
       .then((res) => res.json())
       .then((posts) => setPosts(posts));
+      setIsLogged(true)
     }
   },[]);
 

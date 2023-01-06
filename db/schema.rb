@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_211818) do
     t.string "filmed_by"
     t.bigint "rider_id", null: false
     t.bigint "location_id"
-    t.datetime "date"
+    t.date "date"
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
