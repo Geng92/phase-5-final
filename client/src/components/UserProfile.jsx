@@ -3,24 +3,24 @@ import React from 'react'
 export default function UserProfile({ user }) {
   const { name, instagram, image, city, frame, bio, age, professional } = user
   return (
-    <div class="bg-slate-300">
-      <div>
+    <div >
+      <div class="pt-2 border-t mt-3 w-full text-center text-xl text-gray-600">
         {name}
       </div>
-      <div>
+      <div class="pt-2 border-t mt-3 w-full text-center text-xl text-gray-600">
       {instagram}
       </div>
-      <img src={image}/>
-      <div>
+      <img class="border border-indigo-100 shadow-lg round" src={image} alt="profile"/>
+      <div class="pt-2 border-t mt-2 w-full text-center text-md text-gray-600">
       {city}
       </div>
-      <div>
+      <div class="pt-2 border-t mt-1 w-full text-center text-sm text-gray-600">
       {frame}
       </div>
-      <div>
+      <div class="pt-2 border-t mt-1 w-full text-center text-sm text-gray-600">
       {bio}
       </div>
-      <div>
+      <div class="pt-2 border-t mt-1 w-full text-center text-sm text-gray-600">
       {age}
       </div>
       <div>

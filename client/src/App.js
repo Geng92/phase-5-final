@@ -55,6 +55,7 @@ function App() {
   return (
     <>
     <div class="w-screen h-screen bg-blue-200 border border-2 border-gray" >
+      {/* <img src="https://cdn.shopify.com/s/files/1/1490/5954/files/Screen_Shot_2020-04-22_at_2.45.22_PM_480x480.png?v=1587581136" class="absolute w-screen h-screen mix-blend-overlay"/> */}
       <NavBar />
       <Routes >
         <Route path='/' element={
@@ -91,6 +92,7 @@ function App() {
         <Route path='/posts' element={
           <PostsContainer 
             posts={posts}
+            setPosts={setPosts}
           />} 
         />
       </Routes>

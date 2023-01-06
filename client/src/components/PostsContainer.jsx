@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostsGallery from './PostsGallery'
 
-export default function PostsContainer() {
-  const [ posts, setPosts ] = useState([])
+export default function PostsContainer({ user, posts, setPosts }) {
+  // const [ posts, setPosts ] = useState([])
   const [ userAdmin, setUserAdmin ] = useState([])
   const [ postToEdit, setPostToEdit ] = useState([])
   const navigate = useNavigate();
@@ -52,8 +52,10 @@ export default function PostsContainer() {
   return (
     <div>
         PostsContainer
-        <PostsGallery 
-          posts={posts} 
+        <PostsGallery
+          user={user} 
+          posts={posts}
+          setPosts={setPosts} 
           onEditPost={onEditPost}
           onUpdatePost={onUpdatePost} 
         />

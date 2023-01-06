@@ -34,7 +34,7 @@ export default function UserPostGallery({
       <label class="block text-sm font-medium text-gray-700">
       Recent Posts
       </label>
-      <div class="mt-1 w-full rounded-md border-gray-200 bg-blue text-sm text-gray-700 shadow-sm" >
+      <div >
       {userPostCards}
       </div>
     </div>

@@ -77,26 +77,37 @@ export default function UserContainer({
     // },[])
 
   return (
-    <div>
+    <div >
+      <div class="flex flex-row">
+        <div class="w-1/3">
         <UserProfile  
             user ={user} 
-        />
+            />
+        </div>
+
+        <div class="w-2/3"> 
         <UserPostForm 
             user ={user} 
             userPosts={userPosts} 
             onNewPost={onNewPost} 
-        />
+            />
+        
+      
+        {/* <div class="justify-end columns-1 border-gray-200 ">
         <UserEditPostForm 
             postToEdit={postToEdit}
             onUpdatePost={onUpdatePost}
-        />
+            />
+        </div> */}
         <UserPostsGallery 
             user={user}
             posts={userPosts}
             setPosts={setPosts}
             onEditPost={onEditPost}
             deletePost={deletePost} 
-        />
+            />
+        </div>
+        </div>
         <UserCommentGallery 
             user={user}
         />

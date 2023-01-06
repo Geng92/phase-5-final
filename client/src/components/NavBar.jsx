@@ -1,32 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const navigate = useNavigate()
-
+  
   const handleLogOut = () => {
       sessionStorage.removeItem("user_id")
       navigate('/login')
   }
+
   return (
     <div class="w-screen bg-purple-200 border border-2 border-gray">
       <div >
         <h1 
           className="display: font-bold text-center"
         >
-          BikerGram
+          React Router BMX
         </h1>
-        <div class="flex flex-row px-40">
+        <div class="flex flex-row px-40 w-full antialiased hover:cursor-pointer">
 
-        <label class="flex md:flex w-screen">
+        <button class="flex md:flex w-screen hover:bg-gray-600=center">
           <NavLink 
-            className="display: font-bold text-center" 
+            className="display: font-bold text-center"  
             to="/"
             >
             Home
           </NavLink>  
-          </label>
+          </button>
           <label class="flex md:flex w-screen">
           <NavLink 
             className="display: font-bold text-center" 
@@ -57,7 +58,7 @@ export default function NavBar() {
             className="display: font-bold text-center"
             onClick={handleLogOut}
             >
-            LogOut
+            Exit
           </button>
               </div>
           </div>

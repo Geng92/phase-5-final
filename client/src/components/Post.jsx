@@ -10,8 +10,9 @@ export default function Post({
     onEditPost 
   }) 
 {
-  const [ comments, setComments] = useState([post.comments])
-  const {id, thumbnail, clip, filmed_by, date, likes} = post
+  // const [ link, setLink ] = useState()
+  // const [ comments, setComments] = useState([post.comments])
+  const {id, thumbnail, clip, filmed_by, date, likes } = post
   
   const postComments = post.comments.filter((comment) => comment.post_id == post.id )
 
@@ -42,16 +43,18 @@ export default function Post({
       })
     };
   
+    // const embedVideo = (link) => {
+    //   const link = `https://www.youtube.com/watch?v=${linkToClip}` 
+    //   const embed = link.split("=")
+    //   const embedUrl = "https://www.youtube.com/embed/"+embed[1]
+    // }
     return (
-    <div class="w-full rounded-md border-gray-200 bg-blue text-sm text-gray-700 shadow-sm">
+    <div class=" col-end-7 col-span-2">
+    
       <img src={thumbnail} />
-        <img src={clip} />
           {filmed_by}
         <div>
           {date}
-        </div>
-        <div>
-          {likes}
         </div>
       <button class="block text-sm font-medium text-gray-700" onClick={handleEditClick}>
         Edit Post
@@ -63,12 +66,13 @@ export default function Post({
           post={post}
           setPosts={setPosts} 
           comments={postComments}
-          setComments={setComments}
+          // setComments={setComments}
           user={user}
         />
-      <button onClick={handleDeleteClick}>
+        <div></div>
+      { user ? <button onClick={handleDeleteClick}>
         X
-      </button>
+      </button> : null }
     </div>
   )
 }

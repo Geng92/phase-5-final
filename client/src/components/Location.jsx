@@ -1,7 +1,16 @@
 import React from 'react'
 
-export default function Location() {
+export default function Location({location}) {
+
+  const {name, description, longitude, latitude } = location
+
   return (
-    <div>Location</div>
+    <div>
+      Location
+      {name}
+      {description}
+      {longitude}
+      {latitude}
+    </div>
   )
 }

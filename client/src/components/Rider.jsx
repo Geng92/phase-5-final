@@ -8,16 +8,30 @@ export default function Rider({ rider, onClickRider }) {
     }
 
   return (
-    <div>
-        Rider
+    <div class="w-screen bg-red-200 border border-3 border-black">
+        
+        <div>
         {name}
+        </div>
+        <div>
         {instagram}
-        {image}
+        </div>
+
+        <img src={image}/>
+        <label >
+        <div>
         {city}
+        </div>
+        <div>
         {frame}
+        </div>
+        <div>
         {bio}
+        </div>
+        <div>
         {age}
-        {professional}
+        </div>
+        </label>
     </div>
   )
 }

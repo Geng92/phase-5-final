@@ -30,6 +30,7 @@ export default function UserPostForm({ user, onNewPost }) {
       .then((data) => {
         onNewPost(data)
       });
+      setFormData("")
     }
     
     const handleChange = (e) => {
@@ -40,8 +41,9 @@ export default function UserPostForm({ user, onNewPost }) {
     }
     
     return (
-      <div>
-      <form onSubmit={handleSubmit}>
+      <div class="bg-white w-full shadow rounded-lg p-5">
+      <form onSubmit={handleSubmit} class="bg-gray-200 w-full rounded-lg shadow border p-2">
+        <div>
         {/* // newPost ? 'add post' : null  < hide show form */}
         <input
             name='thumbnail'
@@ -49,6 +51,7 @@ export default function UserPostForm({ user, onNewPost }) {
             placeholder='thumbnail...'
             value={formData.thumbnail}
             onChange={handleChange}
+            
             >
         </input>
         <input
@@ -75,7 +78,11 @@ export default function UserPostForm({ user, onNewPost }) {
             onChange={handleChange}
             >
         </input>
-        <button type="submit">Submit</button>
+
+        </div>
+        <div class="w-2/3">
+        <button type="submit" class="float-right bg-indigo-400 hover:bg-indigo-300 text-white p-2 rounded-lg">Submit</button>
+        </div>
       </form>
     </div>
   )
